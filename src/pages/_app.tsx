@@ -21,19 +21,7 @@ function App({
         client: queryClient,
       }}
     >
-      <Hydrate state={pageProps.dehydratedState}>
-        <CartDropdownProvider>
-          <MobileMenuProvider>
-            <CartProvider>
-              <StoreProvider>
-                <AccountProvider>
-                  {getLayout(<Component {...pageProps} />)}
-                </AccountProvider>
-              </StoreProvider>
-            </CartProvider>
-          </MobileMenuProvider>
-        </CartDropdownProvider>
-      </Hydrate>
+      <div></div>
     </MedusaProvider>
   )
 }
