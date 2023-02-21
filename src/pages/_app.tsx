@@ -36,7 +36,7 @@ function App({
             <p
               className={clsx("text-3xl font-sans underline decoration-white")}
             >
-              Haldi okkum til góðar, síðan er í menning
+              Haldi okkum til góðar, síðan er í gerð
             </p>
           </div>
         </div>
