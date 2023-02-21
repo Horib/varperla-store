@@ -31,7 +31,7 @@ function App({
         >
           <div className={"flex flex-col gap-8 text-white p-16"}>
             <h1 className={clsx("text-7xl font-sans")}>
-              Várperla <br /> Blomuhandil
+              Várperla <br /> Blómuhandil
             </h1>
             <p
               className={clsx("text-3xl font-sans underline decoration-white")}
