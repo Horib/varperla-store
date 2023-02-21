@@ -26,10 +26,10 @@ function App({
       <div className={clsx("h-screen flex bg-[#004346]")}>
         <div
           className={clsx(
-            "basis-7/12 flex items-center justify-center h-screen"
+            "grow xl:basis-6/12 xl:grow-0 flex items-center justify-center h-screen"
           )}
         >
-          <div className={"flex flex-col gap-8 text-white"}>
+          <div className={"flex flex-col gap-8 text-white p-16"}>
             <h1 className={clsx("text-7xl font-sans")}>
               Várperla <br /> Blomuhandil
             </h1>
@@ -40,7 +40,7 @@ function App({
             </p>
           </div>
         </div>
-        <div className={clsx("relative flex-1 shadow")}>
+        <div className={clsx("relative flex-1 shadow hidden xl:block")}>
           <Image
             src="/Flower.jpg"
             alt=""
