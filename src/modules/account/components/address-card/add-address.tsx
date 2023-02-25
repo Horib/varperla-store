@@ -92,11 +92,8 @@ const AddAddress: React.FC = () => {
         <span className="text-base-semi">New address</span>
         <Plus size={24} />
       </button>
-      {/* @ts-expect-error*/}
       <Modal isOpen={state} close={handleClose}>
-        {/* @ts-expect-error*/}
         <Modal.Title>Add address</Modal.Title>
-        {/* @ts-expect-error*/}
         <Modal.Body>
           <div className="grid grid-cols-1 gap-y-2">
             <div className="grid grid-cols-2 gap-x-2">
@@ -176,7 +173,6 @@ const AddAddress: React.FC = () => {
             <div className="text-rose-500 text-small-regular py-2">{error}</div>
           )}
         </Modal.Body>
-        {/* @ts-expect-error*/}
         <Modal.Footer>
           <Button
             className="!bg-gray-200 !text-gray-900 !border-gray-200 min-h-0"

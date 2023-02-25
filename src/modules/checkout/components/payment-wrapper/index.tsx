@@ -5,9 +5,8 @@ import React from "react"
 
 type WrapperProps = {
   paymentSession?: PaymentSession | null
-  children: React.ReactNode
+  children?: React.ReactNode
 }
-
 const Wrapper: React.FC<WrapperProps> = ({ paymentSession, children }) => {
   if (!paymentSession) {
     return <div>{children}</div>
