@@ -8,14 +8,13 @@ type ModalProps = {
   isOpen: boolean
   close: () => void
   size?: "small" | "medium" | "large"
-  children?: React.ReactNode
 }
 
 const Modal: React.FC<ModalProps> & {
-  Title: React.FC<React.PropsWithChildren>
-  Description: React.FC<React.PropsWithChildren>
-  Body: React.FC<React.PropsWithChildren>
-  Footer: React.FC<React.PropsWithChildren>
+  Title: React.FC
+  Description: React.FC
+  Body: React.FC
+  Footer: React.FC
 } = ({ isOpen, close, size = "medium", children }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -45,7 +44,7 @@ const Modal: React.FC<ModalProps> & {
             >
               <Dialog.Panel
                 className={clsx(
-                  "flex flex-col justify-start w-full h-full transform overflow-hidden bg-white p-10 text-left align-middle shadow-xl transition-all max-h-[65vh]",
+                  "flex flex-col justify-start w-full h-full transform overflow-auto bg-white p-10 text-left align-middle shadow-xl transition-all max-h-[65vh]",
                   {
                     "max-w-md": size === "small",
                     "max-w-xl": size === "medium",
@@ -62,7 +61,8 @@ const Modal: React.FC<ModalProps> & {
     </Transition>
   )
 }
-const Title: React.FC<React.PropsWithChildren> = ({ children }) => {
+
+const Title: React.FC = ({ children }) => {
   const { close } = useModal()
 
   return (
@@ -76,17 +76,20 @@ const Title: React.FC<React.PropsWithChildren> = ({ children }) => {
     </Dialog.Title>
   )
 }
-const Description: React.FC<React.PropsWithChildren> = ({ children }) => {
+
+const Description: React.FC = ({ children }) => {
   return (
     <Dialog.Description className="flex text-small-regular text-gray-700 items-center justify-center pt-2 pb-4 h-full">
       {children}
     </Dialog.Description>
   )
 }
-const Body: React.FC<React.PropsWithChildren> = ({ children }) => {
+
+const Body: React.FC = ({ children }) => {
   return <div className="flex-1">{children}</div>
 }
-const Footer: React.FC<React.PropsWithChildren> = ({ children }) => {
+
+const Footer: React.FC = ({ children }) => {
   return <div className="flex items-center justify-end gap-x-4">{children}</div>
 }
 
