@@ -143,8 +143,8 @@ export const CheckoutProvider = ({ children }: CheckoutProviderProps) => {
   const shippingMethods = useMemo(() => {
     if (shipping_options && cart?.region) {
       return shipping_options?.map((option) => ({
-        value: option.id,
-        label: option.name,
+        value: option.id ?? "",
+        label: option.name ?? "",
         price: formatAmount({
           amount: option.amount || 0,
           region: cart.region,
