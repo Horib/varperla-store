@@ -19,7 +19,7 @@ function App({
 }: AppPropsWithLayout<{ dehydratedState?: unknown }>) {
   const getLayout = Component.getLayout ?? ((page) => page)
 
-  const isProduction = process.env.NODE_ENV === "production"
+  const isProduction = process.env.NEXT_PUBLIC_NODE_ENV === "production"
 
   return (
     <PlausibleProvider trackOutboundLinks={true} domain="varperla.fo">
