@@ -7,6 +7,9 @@ module.exports = withStoreConfig({
   images: {
     domains: ["varperla-space.ams3.digitaloceanspaces.com", "localhost"],
   },
+  experimental: {
+    appDir: true,
+  },
 })
 
 //Test2
