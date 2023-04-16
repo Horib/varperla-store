@@ -16,7 +16,7 @@ import ComingSoon from "./comingSoon"
 const MODE = {
   NORMAL: "normal",
   MAINTENANCE: "maintenance",
-  COMING_SOON: "coming-soon",
+  COMING_SOON: "coming_soon",
 } as const
 
 function App({
