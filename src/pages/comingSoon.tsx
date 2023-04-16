@@ -22,9 +22,12 @@ const ComingSoon = () => {
         <Image
           src="/Flower.jpg"
           alt=""
-          layout="fill"
-          objectFit="cover"
           className={clsx("absolute inset-0")}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
         />
       </div>
     </div>
