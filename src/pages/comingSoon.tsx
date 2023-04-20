@@ -3,6 +3,7 @@ import Image from "next/image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons"
 import Link from "next/link"
+import SignupForm from "@modules/common/components/forms/SignupForm"
 
 const ComingSoon = () => {
   return (
@@ -87,6 +88,9 @@ const ComingSoon = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <SignupForm />
         </div>
       </div>
       {/* background */}
