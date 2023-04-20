@@ -48,7 +48,8 @@ const ComingSoon = () => {
               )}
             >
               {/* Okkurt framúr er í gerð */}
-              Great things are coming
+              {/* Great things are coming */}
+              Gleði tykkum, her hendur okkurt
             </h2>
             <div className={clsx("mt-3 flex flex-col gap-y-10 2xl:mt-16")}>
               <button
@@ -62,7 +63,7 @@ const ComingSoon = () => {
                   )}
                 >
                   <span className={clsx("relative text-white")}>
-                    Learn More
+                    Fá meira kunning
                   </span>
                 </span>
               </button>
