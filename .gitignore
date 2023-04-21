@@ -41,3 +41,6 @@ node_modules
 
 .yarn
 .swc
+/test-results/
+/playwright-report/
+/playwright/.cache/
