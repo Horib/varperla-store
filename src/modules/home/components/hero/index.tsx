@@ -1,5 +1,5 @@
 import UnderlineLink from "@modules/common/components/underline-link"
-import Image from "next/image";
+import Image from "next/image"
 
 const Hero = () => {
   return (
@@ -25,10 +25,13 @@ const Hero = () => {
         fill
         sizes="100vw"
         style={{
-          objectFit: "cover"
-        }} />
+          objectFit: "cover",
+          maxWidth: "100%",
+          height: "auto",
+        }}
+      />
     </div>
-  );
+  )
 }
 
 export default Hero
