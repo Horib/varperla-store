@@ -55,12 +55,12 @@ const ComingSoon = () => {
             <div className={clsx("mt-3 flex flex-col gap-y-9 2xl:mt-16")}>
               <button
                 className={clsx(
-                  "rounded-md bg-white px-10 py-4 text-base text-black hover:bg-slate-100 active:scale-95 2xl:px-20 2xl:py-6 2xl:text-2xl"
+                  "group rounded-md bg-white px-10 py-4 text-base text-black hover:bg-slate-100 active:scale-95 2xl:px-20 2xl:py-6 2xl:text-2xl"
                 )}
               >
                 <span
                   className={clsx(
-                    "relative inline-block rounded-sm p-2 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-gradient-to-tl before:from-[#2A454B] before:to-[#294861] before:transition before:duration-100  before:ease-in-out hover:before:-skew-y-0"
+                    "relative inline-block rounded-sm p-2 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-gradient-to-tl before:from-[#2A454B] before:to-[#294861] before:transition before:duration-100  before:ease-in-out group-hover:before:-skew-y-0"
                   )}
                 >
                   <span className={clsx("relative text-white")}>
