@@ -153,7 +153,7 @@ function ComingSoonOverlay({ onClose }: { onClose: () => void }) {
     >
       <div
         className={clsx(
-          "mb-8 mt-12 flex h-full max-w-[544px] flex-col items-center justify-start gap-y-8 sm:mb-32 sm:mt-0 sm:justify-center"
+          "mt-12 flex h-full max-w-[544px] flex-col items-center justify-start gap-y-8 sm:mb-0 sm:mt-0 sm:justify-center"
         )}
       >
         <h1
