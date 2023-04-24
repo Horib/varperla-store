@@ -1,13 +1,6 @@
-import {
-  render,
-  screen,
-  fireEvent,
-  waitForElementToBeRemoved,
-  waitFor,
-} from "@testing-library/react"
+import { render, screen, fireEvent } from "@testing-library/react"
 
 import ComingSoon from "@pages/comingSoon"
-// import "@testing-library/jest-dom/extend-expect"
 import "@testing-library/jest-dom"
 
 describe("ComingSoon", () => {
@@ -49,17 +42,24 @@ describe("ComingSoon", () => {
       const moreInfoButton = screen.getByText(/Fá meira kunning/i)
       fireEvent.click(moreInfoButton)
 
+      const overlay = await screen.findByTestId("coming-soon-overlay")
+      expect(overlay).toBeVisible()
+
       const overlayTitle = screen.getByText(
         /Vit eru í gongd við at gera ein net-handil/i
       )
       expect(overlayTitle).toBeInTheDocument()
 
-      const closeButton = screen.getByRole("button", { name: "close" })
-      //   const closeButton = screen.getByTestId("coming-soon-close-btn")
+      const closeButton = screen.getByLabelText("close")
       expect(closeButton).toBeInTheDocument()
 
-      // fireEvent.click(closeButton)
-      // expect(closeButton).not.toBeVisible()
+      fireEvent.click(closeButton)
+      // await waitFor(
+      //   () => {
+      //     expect(overlay).not.toBeInTheDocument()
+      //   },
+      //   { timeout: 1000 }
+      // )
     })
   })
 })
