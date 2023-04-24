@@ -12,8 +12,14 @@ import PlausibleProvider from "next-plausible"
 import { Analytics } from "@vercel/analytics/react"
 import Maintenance from "./maintenance"
 import ComingSoon from "./comingSoon"
+import { Children, useEffect } from "react"
 
-const MODE = {
+const APP_ENV = {
+  DEVELOPMENT: "development",
+  PRODUCTION: "production",
+} as const
+
+const SITE_MODE = {
   NORMAL: "normal",
   MAINTENANCE: "maintenance",
   COMING_SOON: "coming_soon",
@@ -25,29 +31,55 @@ function App({
 }: AppPropsWithLayout<{ dehydratedState?: unknown }>) {
   const getLayout = Component.getLayout ?? ((page) => page)
 
+  const appEnvironment =
+    process.env.NEXT_PUBLIC_NODE_ENV?.toLowerCase() || APP_ENV.DEVELOPMENT
+
   const siteMode =
-    process.env.NEXT_PUBLIC_SITE_MODE?.toLowerCase() || MODE.NORMAL
+    process.env.NEXT_PUBLIC_SITE_MODE?.toLowerCase() || SITE_MODE.NORMAL
   const siteUrl = process.env.NEXT_PUBLIC_PLAUSIBLE_URL || "varperla.fo"
 
-  if (siteMode === MODE.MAINTENANCE) {
-    return (
+  const InjectClarityScript = () => {
+    useEffect(() => {
+      if (
+        appEnvironment !== APP_ENV.DEVELOPMENT &&
+        process.env.NEXT_PUBLIC_CLARITY_KEY
+      ) {
+        const script = document.createElement("script")
+        script.id = "clarity-script"
+        script.async = true
+        script.src = `https://www.clarity.ms/tag/${process.env.NEXT_PUBLIC_CLARITY_KEY}`
+        document.body.appendChild(script)
+
+        return () => {
+          // Remove the script on unmount
+          document.body.removeChild(script)
+        }
+      }
+    }, [])
+  }
+
+  InjectClarityScript()
+
+  const renderWithAnalytics = (children: React.ReactNode) => {
+    return appEnvironment === APP_ENV.DEVELOPMENT ? (
+      children
+    ) : (
       <PlausibleProvider trackOutboundLinks={true} domain={siteUrl}>
-        <Maintenance />
+        {children}
         <Analytics />
       </PlausibleProvider>
     )
   }
 
-  if (siteMode === MODE.COMING_SOON) {
-    return (
-      <PlausibleProvider trackOutboundLinks={true} domain={siteUrl}>
-        <ComingSoon />
-        <Analytics />
-      </PlausibleProvider>
-    )
+  if (siteMode === SITE_MODE.MAINTENANCE) {
+    return renderWithAnalytics(<Maintenance />)
   }
 
-  return (
+  if (siteMode === SITE_MODE.COMING_SOON) {
+    return renderWithAnalytics(<ComingSoon />)
+  }
+
+  return renderWithAnalytics(
     <PlausibleProvider trackOutboundLinks={true} domain={siteUrl}>
       <MedusaProvider
         baseUrl={MEDUSA_BACKEND_URL}
