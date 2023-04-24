@@ -167,9 +167,10 @@ function ComingSoonOverlay({ onClose }: { onClose: () => void }) {
           Vit eru í gongd við at gera ein net-handil
         </h1>
         <p className={clsx(" text-center text-lg md:text-xl")}>
-          Várperla er í gondg við at gera eina nýggja og flotta heimasíðu og
-          nethandil. Her fert tú at kunnu at keypa og avheinta í handlinum ella
-          fáa handa vøruna heim til tykkara dyr, um alt landi
+          Várperla er í ferð við at gera eina nýggja og flotta heimasíðu við
+          nethandli. Á síðuni verður møguligt at keypan og fáa vøruna koyrda til
+          dyrnar um alt landið. Eisini verður møguligt at keypa á síðuni, heinta
+          í handlinum í Runavík
         </p>
         <div className={clsx("flex flex-col items-center justify-center")}>
           <SignupForm />

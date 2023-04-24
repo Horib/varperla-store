@@ -1,4 +1,5 @@
 // components/SignupForm.tsx
+import { MailchimpError } from "@lib/util/mailchimp"
 import clsx from "clsx"
 import { useState, ChangeEvent, FormEvent } from "react"
 
@@ -19,13 +20,25 @@ const SignupForm = () => {
       })
 
       if (response.status >= 400) {
-        throw new Error("Failed to subscribe")
+        const errorData = await response.json()
+        throw new Error(errorData.error)
       }
 
       setStatus("Takk fyri! Tú ert meldaður til 😊")
       setEmail("")
-    } catch (error) {
-      setStatus("Oh nei! Ein villa kom í, prøva aftur seinni 😔")
+    } catch (error: any) {
+      const mailchimpError = error as MailchimpError
+      if (mailchimpError.message === "Email is already subscribed") {
+        setStatus("Tú ert longu meldaður til tíðindabrævið 😊")
+      } else {
+        setStatus(
+          `Oh nei! Ein villa kom í: ${
+            mailchimpError.title ||
+            mailchimpError.detail ||
+            mailchimpError.message
+          }. Prøva aftur seinni 😔`
+        )
+      }
     }
   }
 
@@ -37,8 +50,8 @@ const SignupForm = () => {
     >
       <h2 className={clsx("mt-2 text-2xl")}>Tíðindabræv</h2>
       <p className={clsx("m-2 text-base text-gray-500")}>
-        Melda teg til okkara tíðindabræv og ver ímillum tey firstu í fáa boð tá
-        heimasíðan er liðug:
+        Melda teg til okkara tíðindabræv og ver ímillum tey fyrstu, ið fáa boð
+        tá heimasíðan er liðug:
       </p>
       <form
         onSubmit={handleSubmit}
