@@ -24,7 +24,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <Script
+          {/* <Script
             id="clarity-script"
             strategy="beforeInteractive"
             dangerouslySetInnerHTML={{
@@ -38,7 +38,7 @@ class MyDocument extends Document {
             y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_KEY}");`,
             }}
-          />
+          /> */}
         </body>
       </Html>
     )
