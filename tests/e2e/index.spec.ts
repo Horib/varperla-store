@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-    await page.goto('http://localhost:8000/');
+    await page.goto(process.env.NEXT_PUBLIC_DOMAIN_URL || 'http://localhost:8000/');
     await page.getByRole('link', { name: 'Facebook link' }).click();
     await page.getByRole('link', { name: 'Instagram link' }).click();
-    await page.goto('http://localhost:8000/');
+    await page.goto(process.env.NEXT_PUBLIC_DOMAIN_URL || 'http://localhost:8000/');
     await page.getByRole('button', { name: 'Fá meira kunning' }).click();
     await page.getByPlaceholder('Email Addressa').click();
     await page.getByPlaceholder('Email Addressa').fill('r@smus.dev');
