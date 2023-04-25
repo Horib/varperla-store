@@ -1,10 +1,16 @@
-import { render, screen, fireEvent } from "@testing-library/react"
-
-import ComingSoon from "@pages/comingSoon"
+import {
+  render,
+  screen,
+  fireEvent,
+  waitForElementToBeRemoved,
+  waitFor,
+} from "@testing-library/react"
 import "@testing-library/jest-dom"
 
-describe("ComingSoon", () => {
-  it("renders the coming soon page", () => {
+import ComingSoon from "@pages/comingSoon"
+
+describe("ComingSoon Component", () => {
+  it("Renders the coming soon page", () => {
     render(<ComingSoon />)
 
     const title = screen.getByText(/Várperla Blómuhandil/i)
@@ -61,5 +67,26 @@ describe("ComingSoon", () => {
       //   { timeout: 1000 }
       // )
     })
+
+    // it("closes the overlay when handleClose is called", async () => {
+    //   render(<ComingSoon />)
+
+    //   const moreInfoButton = screen.getByText(/Fá meira kunning/i)
+    //   fireEvent.click(moreInfoButton)
+
+    //   const closeButton = await screen.findByLabelText("close")
+    //   expect(closeButton).toBeInTheDocument()
+
+    //   // await waitFor(() => {
+    //   fireEvent.click(closeButton)
+    //   //   return new Promise((resolve) => setTimeout(resolve, 500))
+    //   // })
+
+    //   const overlay = await screen.findByTestId("coming-soon-overlay")
+    //   await waitForElementToBeRemoved(
+    //     () => screen.queryByTestId("coming-soon-overlay"),
+    //     { timeout: 4000 }
+    //   )
+    // })
   })
 })

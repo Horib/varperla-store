@@ -12,7 +12,7 @@ import { motion, useAnimation, AnimatePresence } from "framer-motion"
 const ComingSoon = () => {
   const [showOverlay, setShowOverlay] = useState(false)
 
-  const handleClose = async () => {
+  const handleClose = () => {
     setShowOverlay(false)
   }
 
