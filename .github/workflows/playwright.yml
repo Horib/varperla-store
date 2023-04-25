@@ -19,8 +19,8 @@ jobs:
       run: yarn playwright install --with-deps
     - name: Start server
       run: |
-        yarn start & # Make sure to start your server using the correct command here
-        sleep 5 # Give the server some time to start before running tests
+        yarn dev & # Make sure to start your server using the correct command here
+        sleep 15 # Give the server some time to start before running tests
     - name: Run Playwright tests
       run: yarn playwright test
     - uses: actions/upload-artifact@v3
