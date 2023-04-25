@@ -5,7 +5,7 @@ import {
   waitForElementToBeRemoved,
   waitFor,
 } from "@testing-library/react"
-import "@testing-library/jest-dom"
+import "@testing-library/jest-dom/extend-expect"
 
 import ComingSoon from "@pages/comingSoon"
 
