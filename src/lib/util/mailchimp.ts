@@ -42,4 +42,3 @@ const subscribe = async (email: string): Promise<SubscribeResponse> => {
 };
 
 export default subscribe;
-

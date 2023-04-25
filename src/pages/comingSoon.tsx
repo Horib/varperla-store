@@ -12,7 +12,7 @@ import { motion, useAnimation, AnimatePresence } from "framer-motion"
 const ComingSoon = () => {
   const [showOverlay, setShowOverlay] = useState(false)
 
-  const handleClose = async () => {
+  const handleClose = () => {
     setShowOverlay(false)
   }
 
@@ -85,10 +85,13 @@ const ComingSoon = () => {
                 </button>
                 <div className={clsx("flex flex-row justify-evenly")}>
                   <Link
+                    role="Facebook"
                     className={clsx("hover:scale-105 hover:text-slate-100")}
                     href={
                       "https://www.facebook.com/profile.php?id=100063642802861&mibextid=ZbWKwL"
                     }
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label="Facebook link"
                   >
                     <FontAwesomeIcon
@@ -97,10 +100,13 @@ const ComingSoon = () => {
                     />
                   </Link>
                   <Link
+                    role="Instagram"
                     className={clsx("hover:scale-105 hover:text-slate-100")}
                     href={
                       "https://instagram.com/varperlablomuhandil?igshid=YmMyMTA2M2Y="
                     }
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label="Instagram link"
                   >
                     <FontAwesomeIcon
@@ -143,6 +149,7 @@ export default ComingSoon
 function ComingSoonOverlay({ onClose }: { onClose: () => void }) {
   return (
     <motion.div
+      data-testid="coming-soon-overlay"
       className={clsx(
         "absolute bottom-0 left-0 right-0 top-0 z-10 flex justify-center overflow-y-auto bg-gradient-to-tl from-[#0E1C26] via-[#2A454B] to-[#294861] px-6 py-4 text-white sm:p-16"
       )}
@@ -174,7 +181,7 @@ function ComingSoonOverlay({ onClose }: { onClose: () => void }) {
           <div></div>
         </div>
       </div>
-      <button className={clsx("absolute z-20")}>
+      <button className={clsx("absolute z-20")} aria-label="close">
         <FontAwesomeIcon
           icon={faXmark}
           className={clsx("h-12 w-12 active:scale-95")}
