@@ -90,6 +90,8 @@ const ComingSoon = () => {
                     href={
                       "https://www.facebook.com/profile.php?id=100063642802861&mibextid=ZbWKwL"
                     }
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label="Facebook link"
                   >
                     <FontAwesomeIcon
@@ -103,6 +105,8 @@ const ComingSoon = () => {
                     href={
                       "https://instagram.com/varperlablomuhandil?igshid=YmMyMTA2M2Y="
                     }
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label="Instagram link"
                   >
                     <FontAwesomeIcon
