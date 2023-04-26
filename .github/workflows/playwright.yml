@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_DOMAIN_URL: ${{ env.NEXT_PUBLIC_DOMAIN_URL }}
+      NEXT_PUBLIC_DOMAIN_URL: ${{ vars.NEXT_PUBLIC_DOMAIN_URL }}
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
